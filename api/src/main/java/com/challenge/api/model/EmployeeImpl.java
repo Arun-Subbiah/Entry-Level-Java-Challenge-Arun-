@@ -2,35 +2,33 @@ package com.challenge.api.model;
 
 import java.time.Instant;
 import java.util.UUID;
-import com.challenge.api.model.Employee;
 
 /**
  * Class represents employee in the system.
  * Implements Employee interface
  * Provides getter and setter methods for each attribute.
  */
-
 public class EmployeeImpl implements Employee {
 
     // Unique identifier for the employee
     private UUID uuid;
 
-    //Personal Details
+    // Personal Details
     private String firstName;
     private String lastName;
     private String fullName;
     private Integer salary;
     private Integer age;
 
-    //Job Details
+    // Job Details
     private String jobTitle;
     private String email;
 
-    //Contract Details
+    // Contract Details
     private Instant contractHireDate;
     private Instant contractTerminationDate;
 
-    //Getters and Setters
+    // Getters and Setters
     @Override
     public UUID getUuid() {
         return uuid;
@@ -57,7 +55,7 @@ public class EmployeeImpl implements Employee {
     }
 
     @Override
-    public void setLastName( String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -130,6 +128,4 @@ public class EmployeeImpl implements Employee {
     public void setContractTerminationDate(Instant terminationDate) {
         this.contractTerminationDate = terminationDate;
     }
-
-
 }

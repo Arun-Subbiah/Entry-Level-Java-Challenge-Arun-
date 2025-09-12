@@ -1,9 +1,8 @@
 package com.challenge.api.service;
-import org.springframework.stereotype.Service;
+
 import com.challenge.api.model.Employee;
-import com.challenge.api.model.EmployeeImpl;
-import java.time.Instant;
 import java.util.*;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementation of EmployeeService for in-memory management of Employee objects.
@@ -13,32 +12,41 @@ import java.util.*;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private final Map<UUID, Employee> employeeStore = new HashMap<>();  // In Memory Database
+    // In Memory Database, Keyed by UUID
+    private final Map<UUID, Employee> employeeStore = new HashMap<UUID, Employee>();
 
-    //Returns list of all employees in store
+    /**
+     * Retrieves all employees from the in-memory store
+     * @return a {@link List} containing all {@link Employee} objects
+     */
     @Override
     public List<Employee> getAllEmployees() {
 
         return new ArrayList<>(employeeStore.values());
-
     }
 
-    //Returns single employee by uuid
+    /**
+     * Retrieves a single employee by UUID.
+     * @param uuid the UUID of the employee to retrieve
+     * @return the {@link Employee} object if found, or {@code null} if not found
+     */
     @Override
     public Employee getEmployeeByUuid(UUID uuid) {
         return employeeStore.get(uuid);
-
     }
 
-    //Creates new employee in store and assigns uuid
+    /**
+     * Creates a new employee and adds it to the in-memory store.
+     * Assigns a randomly generated UUID to the new employee.
+     * @param employeeData the {@link Employee} object containing data to store
+     * @return the newly created {@link Employee} object with assigned UUID
+     */
     @Override
     public Employee createEmployee(Employee requestBody) {
 
         UUID uuid = UUID.randomUUID();
         requestBody.setUuid(uuid);
-        employeeStore.put(uuid,requestBody);
+        employeeStore.put(uuid, requestBody);
         return requestBody;
-
     }
-
 }

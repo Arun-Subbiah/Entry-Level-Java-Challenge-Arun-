@@ -9,7 +9,7 @@ import java.util.UUID;
  */
 public interface Employee {
 
-    //Unique Identifiers
+    // Unique Identifiers
     UUID getUuid();
 
     /**
@@ -18,7 +18,7 @@ public interface Employee {
      */
     void setUuid(UUID uuid);
 
-    //Job Details
+    // Job Details
     String getFirstName();
 
     void setFirstName(String name);

@@ -63,8 +63,8 @@ The spotless plugin will also execute check-and-validation tasks as part of the 
 ## My Approach 
 
 . **Employee Abstraction**
-- Defined a minimal `Employee` interface as a contract for domain modeling.
-- `EmployeeImpl` provides a concrete implementation with standard getters/setters.
+- Defined a minimal `Employee` interface .
+- `EmployeeImpl` provides an implementation with standard getters/setters.
 
 2. **Service Layer**
   - `EmployeeService` interface defines methods: `getAllEmployees`, `getEmployeeByUuid`, `createEmployee`.
@@ -75,10 +75,10 @@ The spotless plugin will also execute check-and-validation tasks as part of the 
     - `GET /api/v1/employee` – returns all employees.
     - `GET /api/v1/employee/{uuid}` – fetches a single employee by UUID.
     - `POST /api/v1/employee` – creates a new employee.
-  - Uses `@RequestBody` and proper typing to ensure clean data handling.
+  - Uses `@RequestBody` to ensure clean data handling.
 
 4. **Error Handling**
-  - `GlobalExceptionHandler` catches `ResponseStatusException` and formats a consistent JSON error response including:
+  - `GlobalExceptionHandler` catches `ResponseStatusException` and formats a JSON error response including:
     - `timestamp`
     - `status`
     - `error`
@@ -87,3 +87,11 @@ The spotless plugin will also execute check-and-validation tasks as part of the 
 
 5. **Design Considerations**
   - Separation of concerns: Controller handles HTTP, Service handles logic, Model defines structure.
+  - EmployeeController depends on EmployeeService interface not EmployeeServiceImpl
+
+## Testing 
+  - curl -X POST http://localhost:8080/api/v1/employee \
+    -H "Content-Type: application/json" \
+    -d '{"firstName":"Arun","lastName":"Subbiah","age":21,"jobTitle":"Software Engineer","salary":10000,"email":"arunasalam@example.com", "contractHireDate":"2004-11-01T00:00:00Z"}'
+
+
