@@ -9,6 +9,7 @@ import java.util.UUID;
  */
 public interface Employee {
 
+    //Unique Identifiers
     UUID getUuid();
 
     /**
@@ -17,6 +18,7 @@ public interface Employee {
      */
     void setUuid(UUID uuid);
 
+    //Job Details
     String getFirstName();
 
     void setFirstName(String name);
@@ -45,6 +47,7 @@ public interface Employee {
 
     void setEmail(String email);
 
+    // Contract dates
     Instant getContractHireDate();
 
     void setContractHireDate(Instant date);
