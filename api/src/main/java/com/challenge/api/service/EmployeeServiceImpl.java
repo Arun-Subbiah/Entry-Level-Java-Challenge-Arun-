@@ -17,7 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * Retrieves all employees from the in-memory store
-     * @return a {@link List} containing all {@link Employee} objects
+     * @return a List containing all Employee objects
      */
     @Override
     public List<Employee> getAllEmployees() {
@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     /**
      * Retrieves a single employee by UUID.
      * @param uuid the UUID of the employee to retrieve
-     * @return the {@link Employee} object if found, or {@code null} if not found
+     * @return the Employee object if found or null if not found
      */
     @Override
     public Employee getEmployeeByUuid(UUID uuid) {
@@ -38,8 +38,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     /**
      * Creates a new employee and adds it to the in-memory store.
      * Assigns a randomly generated UUID to the new employee.
-     * @param employeeData the {@link Employee} object containing data to store
-     * @return the newly created {@link Employee} object with assigned UUID
+     * @param employeeData the Employee object containing data to store
+     * @return the newly created Employee object with assigned UUID
      */
     @Override
     public Employee createEmployee(Employee requestBody) {
