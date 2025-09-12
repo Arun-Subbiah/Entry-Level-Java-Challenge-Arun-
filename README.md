@@ -52,3 +52,38 @@ To format code according to style guidelines, you can run **spotlessApply** task
 
 The spotless plugin will also execute check-and-validation tasks as part of the gradle **build** task.
 `./gradlew build`
+
+## Structure
+
+- Model: Defines `Employee` interface and its implementation `EmployeeImpl`
+- Service: Handles business logic (`EmployeeService` and `EmployeeServiceImpl`)
+- Controller: Exposes REST endpoints via Spring Boot.
+- GlobalExceptionHandler: Handles errors across the API.
+
+## My Approach 
+
+. **Employee Abstraction**
+- Defined a minimal `Employee` interface as a contract for domain modeling.
+- `EmployeeImpl` provides a concrete implementation with standard getters/setters.
+
+2. **Service Layer**
+  - `EmployeeService` interface defines methods: `getAllEmployees`, `getEmployeeByUuid`, `createEmployee`.
+  - `EmployeeServiceImpl` implements service methods with in-memory storage (HashMap) to mock persistence.
+
+3. **REST Controller**
+  - `EmployeeController` exposes endpoints:
+    - `GET /api/v1/employee` – returns all employees.
+    - `GET /api/v1/employee/{uuid}` – fetches a single employee by UUID.
+    - `POST /api/v1/employee` – creates a new employee.
+  - Uses `@RequestBody` and proper typing to ensure clean data handling.
+
+4. **Error Handling**
+  - `GlobalExceptionHandler` catches `ResponseStatusException` and formats a consistent JSON error response including:
+    - `timestamp`
+    - `status`
+    - `error`
+    - `message`
+    - `path`
+
+5. **Design Considerations**
+  - Separation of concerns: Controller handles HTTP, Service handles logic, Model defines structure.
