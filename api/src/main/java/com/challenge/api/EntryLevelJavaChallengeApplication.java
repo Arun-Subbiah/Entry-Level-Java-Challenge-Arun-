@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EntryLevelJavaChallengeApplication {
 
-    //main method, launches appliation
+    // main method, launches appliation
     public static void main(String[] args) {
         SpringApplication.run(EntryLevelJavaChallengeApplication.class, args);
     }

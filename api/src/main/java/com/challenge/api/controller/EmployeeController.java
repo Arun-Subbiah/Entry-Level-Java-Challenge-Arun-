@@ -52,8 +52,8 @@ public class EmployeeController {
         Employee employee = employeeService.getEmployeeByUuid(uuid);
 
         if (employee == null) {
-            //Logger.log ...
-            //Logger will be used to record exceptions
+            // Logger.log ...
+            // Logger will be used to record exceptions
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found with UUID: " + uuid);
 
         } else {
