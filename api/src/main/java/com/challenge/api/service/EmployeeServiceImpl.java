@@ -38,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     /**
      * Creates a new employee and adds it to the in-memory store.
      * Assigns a randomly generated UUID to the new employee.
-     * @param employeeData the Employee object containing data to store
+     * @param requestBody, the Employee object containing data to store
      * @return the newly created Employee object with assigned UUID
      */
     @Override
